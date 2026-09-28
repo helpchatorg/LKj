@@ -1235,16 +1235,11 @@
 
             <div class="sa-wallet-history-tabs" style="display:flex;gap:6px;margin-bottom:12px;border-bottom:1px solid var(--border);">
                 <button type="button" class="sa-wallet-history-tab-btn active" id="sa-wallet-htab-txns" onclick="saSwitchWalletHistoryTab('txns')">📜 Transaction History</button>
-                <button type="button" class="sa-wallet-history-tab-btn" id="sa-wallet-htab-charges" onclick="saSwitchWalletHistoryTab('charges')">🧾 Past Charge Requests</button>
                 <button type="button" class="sa-wallet-history-tab-btn" id="sa-wallet-htab-lock" onclick="saSwitchWalletHistoryTab('lock')">🔒 Activate/Deactivate/Closure/eKYC Log</button>
             </div>
 
             <div id="sa-wallet-htab-panel-txns" class="sa-wallet-history-tab-panel">
                 <div id="sa-wallet-tx-list" style="max-height:320px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;scroll-behavior:smooth;border:1px solid var(--border);border-radius:12px;padding:8px;"></div>
-            </div>
-
-            <div id="sa-wallet-htab-panel-charges" class="sa-wallet-history-tab-panel" style="display:none;">
-                <div id="sa-wallet-charge-requests"></div>
             </div>
 
             <div id="sa-wallet-htab-panel-lock" class="sa-wallet-history-tab-panel" style="display:none;">
@@ -4834,7 +4829,7 @@ function saRenderWalletLockHistory(wallet){
         '</div>';
 }
 function saSwitchWalletHistoryTab(tab){
-    ['charges','txns','lock'].forEach(t => {
+    ['txns','lock'].forEach(t => {
         const btn = document.getElementById('sa-wallet-htab-' + t);
         const panel = document.getElementById('sa-wallet-htab-panel-' + t);
         if (btn) btn.classList.toggle('active', t === tab);
